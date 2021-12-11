@@ -513,22 +513,24 @@
     </datasource>
   </datasources>
   <worksheets>
-    <worksheet name='Sheet 10'>
+    <worksheet name='award energy'>
       <table>
         <view>
           <datasources>
             <datasource caption='Sheet1 (capstone_master_final)' name='federated.1dfqb1q17hs5ka16hpxmr0sy909x' />
           </datasources>
           <datasource-dependencies datasource='federated.1dfqb1q17hs5ka16hpxmr0sy909x'>
-            <column caption='Artist' datatype='string' name='[artist]' role='dimension' type='nominal' />
             <column-instance column='[energy]' derivation='Avg' name='[avg:energy:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[length]' derivation='Avg' name='[avg:length:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[tempo]' derivation='Avg' name='[avg:tempo:qk]' pivot='key' type='quantitative' />
+            <column caption='Award' datatype='string' name='[award]' role='dimension' type='nominal' />
             <column caption='Energy' datatype='real' name='[energy]' role='measure' type='quantitative' />
-            <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
-            <column-instance column='[artist]' derivation='None' name='[none:artist:nk]' pivot='key' type='nominal' />
-            <column-instance column='[name]' derivation='None' name='[none:name:nk]' pivot='key' type='nominal' />
+            <column caption='Length' datatype='real' name='[length]' role='measure' type='quantitative' />
+            <column-instance column='[award]' derivation='None' name='[none:award:nk]' pivot='key' type='nominal' />
+            <column-instance column='[valence]' derivation='Sum' name='[sum:valence:qk]' pivot='key' type='quantitative' />
+            <column caption='Tempo' datatype='real' name='[tempo]' role='measure' type='quantitative' />
+            <column caption='Valence' datatype='real' name='[valence]' role='measure' type='quantitative' />
           </datasource-dependencies>
-          <computed-sort column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk]' direction='DESC' using='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[avg:energy:qk]' />
-          <computed-sort column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:name:nk]' direction='DESC' using='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[avg:energy:qk]' />
           <aggregation value='true' />
         </view>
         <style />
@@ -539,9 +541,33 @@
             </view>
             <mark class='Automatic' />
           </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[avg:energy:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[avg:length:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[avg:tempo:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[sum:valence:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
         </panes>
-        <rows>([federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk] / [federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:name:nk])</rows>
-        <cols>[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[avg:energy:qk]</cols>
+        <rows>([federated.1dfqb1q17hs5ka16hpxmr0sy909x].[avg:energy:qk] + ([federated.1dfqb1q17hs5ka16hpxmr0sy909x].[avg:length:qk] + ([federated.1dfqb1q17hs5ka16hpxmr0sy909x].[avg:tempo:qk] + [federated.1dfqb1q17hs5ka16hpxmr0sy909x].[sum:valence:qk])))</rows>
+        <cols>[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:award:nk]</cols>
       </table>
       <simple-id uuid='{F5F8AFB1-5498-4495-B7C1-55793388A5CE}' />
     </worksheet>
@@ -1242,8 +1268,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='25' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='24' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='27' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='26' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
                 <zone fixed-size='280' h='49000' id='1' is-fixed='true' name='key' w='98400' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -1335,8 +1361,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1250' minheight='1250' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='18' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='17' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='20' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='19' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
                 <zone forceUpdate='true' h='4000' id='10' type-v2='text' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='14'>The Top 10 Diamond Awarded Singles</run>
@@ -1455,8 +1481,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='33' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='32' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='35' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='34' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
                 <zone fixed-size='280' h='79500' id='3' is-fixed='true' name='time' w='49200' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -1553,8 +1579,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='30' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='29' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='32' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='31' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
                 <zone fixed-size='280' h='98000' id='3' is-fixed='true' name='valence' w='82400' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -1708,7 +1734,7 @@
       </cards>
       <simple-id uuid='{7C74088F-684F-4D4E-8F20-483D87E1550D}' />
     </window>
-    <window class='worksheet' maximized='true' name='Sheet 10'>
+    <window class='worksheet' maximized='true' name='award energy'>
       <cards>
         <edge name='left'>
           <strip size='160'>
