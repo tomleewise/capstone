@@ -1751,7 +1751,7 @@
             <zone h='4357' id='3' type-v2='title' w='98426' x='787' y='830' />
             <zone h='10477' id='4' is-fixed='true' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='98426' x='787' y='5187' />
             <zone h='83506' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='98426' x='787' y='15664'>
-              <flipboard active-id='7' nav-type='caption' show-nav-arrows='true'>
+              <flipboard active-id='5' nav-type='caption' show-nav-arrows='true'>
                 <story-points>
                   <story-point caption='Key and Mode&#9;' captured-sheet='Key and Mode Dash' id='1' />
                   <story-point caption='Valence and Key' captured-sheet='valence dash' id='2' />
@@ -2447,7 +2447,7 @@
       <simple-id uuid='{541EFE98-A815-4887-B951-2E7585749CDA}' />
     </dashboard>
   </dashboards>
-  <windows pres-mode='true' source-height='37'>
+  <windows source-height='32'>
     <window class='worksheet' name='key'>
       <cards>
         <edge name='left'>
