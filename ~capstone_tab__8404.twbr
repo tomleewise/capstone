@@ -6,8 +6,6 @@
     <_.fcp.AccessibleZoneTabOrder.true...AccessibleZoneTabOrder />
     <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
     <AutoCreateAndUpdateDSDPhoneLayouts />
-    <IntuitiveSorting />
-    <IntuitiveSorting_SP2 />
     <_.fcp.MarkAnimation.true...MarkAnimation />
     <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
     <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
@@ -749,12 +747,14 @@
             <column caption='Acousticness' datatype='real' name='[acousticness]' role='measure' type='quantitative' />
             <column caption='Artist' datatype='string' name='[artist]' role='dimension' type='nominal' />
             <column caption='Award' datatype='string' name='[award]' role='dimension' type='nominal' />
+            <column-instance column='[artist]' derivation='Count' name='[cnt:artist:qk]' pivot='key' type='quantitative' />
             <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
             <column-instance column='[artist]' derivation='None' name='[none:artist:nk]' pivot='key' type='nominal' />
             <column-instance column='[award]' derivation='None' name='[none:award:nk]' pivot='key' type='nominal' />
             <column-instance column='[name]' derivation='None' name='[none:name:nk]' pivot='key' type='nominal' />
             <column-instance column='[acousticness]' derivation='Sum' name='[sum:acousticness:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
+          <computed-sort column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk]' direction='DESC' using='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[cnt:artist:qk]' />
           <filter class='categorical' column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:award:nk]'>
             <groupfilter function='member' level='[none:award:nk]' member='&quot;Diamond&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
@@ -812,13 +812,13 @@
           <datasource-dependencies datasource='federated.1dfqb1q17hs5ka16hpxmr0sy909x'>
             <column caption='Artist' datatype='string' name='[artist]' role='dimension' type='nominal' />
             <column caption='Award' datatype='string' name='[award]' role='dimension' type='nominal' />
+            <column-instance column='[artist]' derivation='Count' name='[cnt:artist:qk]' pivot='key' type='quantitative' />
             <column caption='Danceability' datatype='real' name='[danceability]' role='measure' type='quantitative' />
             <column-instance column='[danceability]' derivation='Max' name='[max:danceability:qk]' pivot='key' type='quantitative' />
             <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
             <column-instance column='[artist]' derivation='None' name='[none:artist:nk]' pivot='key' type='nominal' />
             <column-instance column='[award]' derivation='None' name='[none:award:nk]' pivot='key' type='nominal' />
             <column-instance column='[name]' derivation='None' name='[none:name:nk]' pivot='key' type='nominal' />
-            <column-instance column='[danceability]' derivation='Sum' name='[sum:danceability:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <filter class='categorical' column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk]'>
             <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
@@ -834,7 +834,7 @@
               <groupfilter function='member' level='[none:artist:nk]' member='&quot;The Chainsmokers&quot;' />
             </groupfilter>
           </filter>
-          <computed-sort column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk]' direction='DESC' using='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[sum:danceability:qk]' />
+          <computed-sort column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk]' direction='DESC' using='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[cnt:artist:qk]' />
           <filter class='categorical' column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:award:nk]'>
             <groupfilter function='member' level='[none:award:nk]' member='&quot;Diamond&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
@@ -897,6 +897,7 @@
           <datasource-dependencies datasource='federated.1dfqb1q17hs5ka16hpxmr0sy909x'>
             <column caption='Artist' datatype='string' name='[artist]' role='dimension' type='nominal' />
             <column caption='Award' datatype='string' name='[award]' role='dimension' type='nominal' />
+            <column-instance column='[artist]' derivation='Count' name='[cnt:artist:qk]' pivot='key' type='quantitative' />
             <column caption='Energy' datatype='real' name='[energy]' role='measure' type='quantitative' />
             <column-instance column='[energy]' derivation='Max' name='[max:energy:qk]' pivot='key' type='quantitative' />
             <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
@@ -905,7 +906,7 @@
             <column-instance column='[name]' derivation='None' name='[none:name:nk]' pivot='key' type='nominal' />
             <column-instance column='[energy]' derivation='Sum' name='[sum:energy:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
-          <computed-sort column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk]' direction='DESC' using='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[max:energy:qk]' />
+          <computed-sort column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk]' direction='DESC' using='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[cnt:artist:qk]' />
           <filter class='categorical' column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:award:nk]'>
             <groupfilter function='member' level='[none:award:nk]' member='&quot;Diamond&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
@@ -1034,6 +1035,7 @@
           <datasource-dependencies datasource='federated.1dfqb1q17hs5ka16hpxmr0sy909x'>
             <column caption='Artist' datatype='string' name='[artist]' role='dimension' type='nominal' />
             <column caption='Award' datatype='string' name='[award]' role='dimension' type='nominal' />
+            <column-instance column='[artist]' derivation='Count' name='[cnt:artist:qk]' pivot='key' type='quantitative' />
             <column caption='Loudness' datatype='real' name='[loudness]' role='measure' type='quantitative' />
             <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
             <column-instance column='[artist]' derivation='None' name='[none:artist:nk]' pivot='key' type='nominal' />
@@ -1055,6 +1057,7 @@
               <groupfilter function='member' level='[none:artist:nk]' member='&quot;The Chainsmokers&quot;' />
             </groupfilter>
           </filter>
+          <computed-sort column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk]' direction='DESC' using='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[cnt:artist:qk]' />
           <filter class='categorical' column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:award:nk]'>
             <groupfilter function='member' level='[none:award:nk]' member='&quot;Diamond&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
@@ -1073,9 +1076,6 @@
             </groupfilter>
           </filter>
           <computed-sort column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:name:nk]' direction='DESC' using='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[sum:loudness:qk]' />
-          <shelf-sorts>
-            <shelf-sort-v2 dimension-to-sort='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk]' direction='DESC' measure-to-sort-by='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[sum:loudness:qk]' shelf='rows' />
-          </shelf-sorts>
           <slices>
             <column>[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:award:nk]</column>
             <column>[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk]</column>
@@ -1117,6 +1117,7 @@
           <datasource-dependencies datasource='federated.1dfqb1q17hs5ka16hpxmr0sy909x'>
             <column caption='Artist' datatype='string' name='[artist]' role='dimension' type='nominal' />
             <column caption='Award' datatype='string' name='[award]' role='dimension' type='nominal' />
+            <column-instance column='[artist]' derivation='Count' name='[cnt:artist:qk]' pivot='key' type='quantitative' />
             <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
             <column-instance column='[artist]' derivation='None' name='[none:artist:nk]' pivot='key' type='nominal' />
             <column-instance column='[award]' derivation='None' name='[none:award:nk]' pivot='key' type='nominal' />
@@ -1124,6 +1125,7 @@
             <column caption='Speechiness' datatype='real' name='[speechiness]' role='measure' type='quantitative' />
             <column-instance column='[speechiness]' derivation='Sum' name='[sum:speechiness:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
+          <computed-sort column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk]' direction='DESC' using='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[cnt:artist:qk]' />
           <filter class='categorical' column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:award:nk]'>
             <groupfilter function='member' level='[none:award:nk]' member='&quot;Diamond&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
@@ -1184,6 +1186,7 @@
           <datasource-dependencies datasource='federated.1dfqb1q17hs5ka16hpxmr0sy909x'>
             <column caption='Artist' datatype='string' name='[artist]' role='dimension' type='nominal' />
             <column caption='Award' datatype='string' name='[award]' role='dimension' type='nominal' />
+            <column-instance column='[artist]' derivation='Count' name='[cnt:artist:qk]' pivot='key' type='quantitative' />
             <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
             <column-instance column='[artist]' derivation='None' name='[none:artist:nk]' pivot='key' type='nominal' />
             <column-instance column='[award]' derivation='None' name='[none:award:nk]' pivot='key' type='nominal' />
@@ -1205,7 +1208,7 @@
               <groupfilter function='member' level='[none:artist:nk]' member='&quot;The Chainsmokers&quot;' />
             </groupfilter>
           </filter>
-          <computed-sort column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk]' direction='DESC' using='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[sum:tempo:qk]' />
+          <computed-sort column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:artist:nk]' direction='DESC' using='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[cnt:artist:qk]' />
           <filter class='categorical' column='[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:award:nk]'>
             <groupfilter function='member' level='[none:award:nk]' member='&quot;Diamond&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
@@ -1754,7 +1757,28 @@
               <flipboard active-id='5' nav-type='caption' show-nav-arrows='true'>
                 <story-points>
                   <story-point caption='Key and Mode&#9;' captured-sheet='Key and Mode Dash' id='1' />
-                  <story-point caption='Valence and Key' captured-sheet='valence dash' id='2' />
+                  <story-point caption='Valence and Key' captured-sheet='valence dash' id='2'>
+                    <capturedDeltas>
+                      <worksheet name='valence'>
+                        <selection-collection>
+                          <node-selection select-tuples='false'>
+                            <oriented-node-reference orientation='vertical'>
+                              <node-reference>
+                                <fields>
+                                  <field>[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[none:mode:nk]</field>
+                                </fields>
+                                <multibucket>
+                                  <bucket>&quot;minor&quot;</bucket>
+                                </multibucket>
+                                <axis>[federated.1dfqb1q17hs5ka16hpxmr0sy909x].[avg:valence:qk]</axis>
+                              </node-reference>
+                              <page-reference />
+                            </oriented-node-reference>
+                          </node-selection>
+                        </selection-collection>
+                      </worksheet>
+                    </capturedDeltas>
+                  </story-point>
                   <story-point caption='Time and Tempo' captured-sheet='time dash' id='3' />
                   <story-point caption='Speech and Loudness' captured-sheet='speech dash' id='4' />
                   <story-point caption='Length' captured-sheet='length dash' id='7' />
@@ -1807,8 +1831,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='55' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='54' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='59' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='58' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone fixed-size='280' h='49000' id='1' is-fixed='true' name='key' w='98400' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -1839,6 +1863,32 @@
         </devicelayout>
       </devicelayouts>
       <simple-id uuid='{E7094D36-EACD-4DCD-999E-D16DEAA76F06}' />
+    </dashboard>
+    <dashboard name='Story 2' type='storyboard'>
+      <style />
+      <size maxheight='964' maxwidth='1016' minheight='964' minwidth='1016' />
+      <zones>
+        <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98340' id='1' param='vert' removable='false' type-v2='layout-flow' w='98426' x='787' y='830'>
+            <zone h='4357' id='3' type-v2='title' w='98426' x='787' y='830' />
+            <zone h='10477' id='4' is-fixed='true' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='98426' x='787' y='5187' />
+            <zone h='83506' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='98426' x='787' y='15664'>
+              <flipboard active-id='1' nav-type='caption' show-nav-arrows='true'>
+                <story-points>
+                  <story-point captured-sheet='' id='1' />
+                </story-points>
+              </flipboard>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <simple-id uuid='{D4506C8F-3470-4C01-AF1E-B736FCB170C0}' />
     </dashboard>
     <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='d dash 2'>
       <style />
@@ -1902,14 +1952,14 @@
             <format attr='margin' value='8' />
           </zone-style>
         </zone>
-        <zone forceUpdate='true' h='25625' id='10' is-centered='0' is-scaled='1' param='C:/Users/tomle/Desktop/EIAmKTLUwAA-9VG.jpg' type-v2='bitmap' w='20200' x='73800' y='69250' />
+        <zone h='25625' id='10' is-centered='0' is-scaled='1' param='C:/Users/tomle/Desktop/EIAmKTLUwAA-9VG.jpg' type-v2='bitmap' w='20200' x='73800' y='69250' />
       </zones>
       <devicelayouts>
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1150' minheight='1150' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='28' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='27' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='32' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='31' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone fixed-size='280' h='42500' id='3' is-fixed='true' name='diamond acoustic' w='51000' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -1964,7 +2014,7 @@
                     <format attr='background-color' value='#e6e6e6' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='205' forceUpdate='true' h='25625' id='10' is-centered='0' is-fixed='true' is-scaled='1' param='C:/Users/tomle/Desktop/EIAmKTLUwAA-9VG.jpg' type-v2='bitmap' w='20200' x='73800' y='69250'>
+                <zone fixed-size='205' h='25625' id='10' is-centered='0' is-fixed='true' is-scaled='1' param='C:/Users/tomle/Desktop/EIAmKTLUwAA-9VG.jpg' type-v2='bitmap' w='20200' x='73800' y='69250'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -2046,8 +2096,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1250' minheight='1250' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='48' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='47' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='52' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='51' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone forceUpdate='true' h='4000' id='10' type-v2='text' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#000000' fontsize='14'>The Top 10 Diamond Awarded Singles</run>
@@ -2142,8 +2192,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='17' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='16' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='21' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='20' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone fixed-size='280' h='98000' id='5' is-fixed='true' name='length' w='49200' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -2216,8 +2266,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='900' minheight='900' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='26' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='25' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='30' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='29' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone fixed-size='280' h='49000' id='3' is-fixed='true' name='award speech' w='49200' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -2315,8 +2365,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='63' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='62' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='67' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='66' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone fixed-size='280' h='79500' id='3' is-fixed='true' name='time' w='49200' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -2413,8 +2463,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='60' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='59' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='64' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='63' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone fixed-size='280' h='98000' id='3' is-fixed='true' name='valence' w='82400' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -2447,7 +2497,7 @@
       <simple-id uuid='{541EFE98-A815-4887-B951-2E7585749CDA}' />
     </dashboard>
   </dashboards>
-  <windows source-height='32'>
+  <windows saved-dpi-scale-factor='1.25' source-height='30'>
     <window class='worksheet' name='key'>
       <cards>
         <edge name='left'>
@@ -2907,7 +2957,7 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='8' />
+      <active id='-1' />
       <simple-id uuid='{F9B57504-2428-402B-9B59-50506591BE7B}' />
     </window>
     <window class='dashboard' name='time dash'>
@@ -2934,7 +2984,7 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='3' />
+      <active id='-1' />
       <simple-id uuid='{445A2B95-4952-4E29-88A2-1743A957690A}' />
     </window>
     <window class='dashboard' name='diamond dash'>
@@ -2956,7 +3006,7 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='5' />
+      <active id='-1' />
       <simple-id uuid='{DB233146-D6F3-4B89-ADDE-D8A43F67D02A}' />
     </window>
     <window class='dashboard' name='d dash 2'>
@@ -2967,13 +3017,18 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='8' />
+      <active id='-1' />
       <simple-id uuid='{5A1B74D1-4C96-4F0A-BCF4-404092B33D6E}' />
     </window>
     <window class='dashboard' maximized='true' name='Capstone'>
       <viewpoints />
       <active id='-1' />
       <simple-id uuid='{A539416F-62A9-4A56-B0E2-5589553BF7A4}' />
+    </window>
+    <window class='dashboard' name='Story 2'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{337EC5B6-C69E-427F-909E-0070F0526DF6}' />
     </window>
   </windows>
 </workbook>
