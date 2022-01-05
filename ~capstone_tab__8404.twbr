@@ -2598,7 +2598,7 @@
     <window class='worksheet' name='tempo'>
       <cards>
         <edge name='left'>
-          <strip size='200'>
+          <strip size='250'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -2690,7 +2690,7 @@
     <window class='worksheet' name='award loudness'>
       <cards>
         <edge name='left'>
-          <strip size='200'>
+          <strip size='250'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -2711,7 +2711,7 @@
     <window class='worksheet' name='diamond energy'>
       <cards>
         <edge name='left'>
-          <strip size='200'>
+          <strip size='250'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -2734,7 +2734,7 @@
     <window class='worksheet' name='acoustic award'>
       <cards>
         <edge name='left'>
-          <strip size='200'>
+          <strip size='250'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -2757,7 +2757,7 @@
     <window class='worksheet' name='diamond dance'>
       <cards>
         <edge name='left'>
-          <strip size='200'>
+          <strip size='250'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -2780,7 +2780,7 @@
     <window class='worksheet' name='diamond loudness'>
       <cards>
         <edge name='left'>
-          <strip size='200'>
+          <strip size='250'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -2803,7 +2803,7 @@
     <window class='worksheet' name='length'>
       <cards>
         <edge name='left'>
-          <strip size='200'>
+          <strip size='250'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -2826,7 +2826,7 @@
     <window class='worksheet' name='diamond tempo'>
       <cards>
         <edge name='left'>
-          <strip size='200'>
+          <strip size='250'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -2849,7 +2849,7 @@
     <window class='worksheet' name='diamond acoustic'>
       <cards>
         <edge name='left'>
-          <strip size='200'>
+          <strip size='250'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />
@@ -2872,7 +2872,7 @@
     <window class='worksheet' name='diamond speechiness'>
       <cards>
         <edge name='left'>
-          <strip size='200'>
+          <strip size='250'>
             <card type='pages' />
             <card type='filters' />
             <card type='marks' />

@@ -21,7 +21,7 @@ Findings-
 
 Challenges-
 
-Using Spotify's API to pull the audio features from the given tracks. Cleaning the data to make the features makes sense for visualizations. 
+Using Spotify's API to pull the audio features from the given tracks. Cleaning the data to make the features make sense for visualizations. 
 
 Data Sources
 
